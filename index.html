@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-tema="escuro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfólio | Cícero caetano</title>
+  <meta name="description" content="Portfólio profissional: projetos, habilidades e certificados.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Marca que o JS está ativo e aplica o tema salvo antes de pintar a página (evita "piscar") -->
+  <script>
+    document.documentElement.classList.add("js");
+    try { document.documentElement.dataset.tema = localStorage.getItem("tema") || "escuro"; } catch (e) {}
+  </script>
+
+  <!-- defer: o script principal só roda depois do HTML inteiro estar carregado -->
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- Ícones SVG reutilizáveis (usados com <use href="#id">) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2-6-2m12 4v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  </svg>
+
+  <canvas id="fundo" aria-hidden="true"></canvas>
+  <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+
+  <!-- ================= CABEÇALHO ================= -->
+  <header class="header">
+    <div class="container nav">
+      <a href="#inicio" class="logo">Cícero Caetano</a>
+
+      <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="menu" class="menu" aria-label="Principal">
+        <a href="#inicio" class="ativo">Início</a>
+        <a href="#sobre">Sobre mim</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#certificados">Certificados</a>
+        <a href="#contato">Contato</a>
+
+        <div class="temas" role="group" aria-label="Tema">
+          <button type="button" data-tema="escuro">Escuro</button>
+          <button type="button" data-tema="claro">Claro</button>
+          <button type="button" data-tema="mono">Mono</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- ================= INÍCIO ================= -->
+    <section id="inicio" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-texto">
+          <p class="badge"><span class="ponto"></span> Olá, seja bem-vindo ao meu portfólio</p>
+
+          <h1>
+            <span class="h1-claro">Cícero caetano</span>
+            <span class="h1-roxo">Desenvolvimento de Sistemas</span>
+          </h1>
+
+          <!-- As frases digitadas ficam em data-frases, separadas por | -->
+          <p class="digitando" data-frases="Estudante de Tecnologia e Desenvolvimento Web|com conhecimentos em HTML, CSS e JavaScript">
+            <span id="digitando">Estudante de Tecnologia e Desenvolvimento Web, com conhecimentos em HTML, CSS e JavaScript</span><i class="cursor" aria-hidden="true"></i>
+          </p>
+
+          <p class="lead">Sou uma pessoa dedicada, criativa e com vontade de aprender, sempre buscando desenvolver minhas habilidades e adquirir novos conhecimentos na área de tecnologia. Meu objetivo é crescer profissionalmente, adquirir experiência e contribuir com projetos inovadores.</p>
+
+          <ul class="chips" aria-label="Tecnologias principais">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+          </ul>
+
+          <div class="botoes">
+            <a href="#projetos" class="btn">Conheça meus projetos</a>
+            <a href="#contato" class="btn btn-sec">Entre em contato</a>
+          </div>
+
+          <div class="redes">
+            <a href="https://github.com/seu-usuario" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg></a>
+            <a href="https://linkedin.com/in/seu-usuario" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+            <a href="mailto:seuemail@exemplo.com" aria-label="E-mail"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
+          </div>
+        </div>
+
+        <div class="foto-area">
+          <div class="foto-moldura">
+            <!-- Troque por assets/images/foto.jpg (ou .png) quando tiver sua foto -->
+            <img src="assets/images/foto.svg" alt="Foto de perfil" width="400" height="480">
+          </div>
+          <span class="orb orb1" aria-hidden="true"></span>
+          <span class="orb orb2" aria-hidden="true"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SOBRE ================= -->
+    <section id="sobre" class="secao">
+      <div class="container">
+        <h2>Sobre mim</h2>
+        <div class="sobre-grid">
+          <div class="sobre-texto">
+            <p>Minha jornada na área de tecnologia começou com a curiosidade de entender como sites e aplicações funcionam e como a programação pode transformar ideias em soluções reais. Essa curiosidade me motivou a aprender desenvolvimento web e explorar novas possibilidades por meio da tecnologia.
+
+Gosto de criar sites modernos, interfaces criativas e projetos que unam funcionalidade, organização e um bom design. Atualmente, estou desenvolvendo minhas habilidades em HTML, CSS e JavaScript, buscando adquirir experiência, enfrentar novos desafios e crescer profissionalmente na área de desenvolvimento..</p>
+            <p>Busco oportunidades de estágio e desenvolvimento profissional na área de tecnologia, especialmente em desenvolvimento web. Quero participar de projetos desafiadores, colaborar com equipes, aprender novas tecnologias e colocar meus conhecimentos em prática, contribuindo para a criação de soluções modernas, criativas e funcionais.</p>
+          </div>
+          <div class="cards-mini">
+            <article class="card"><h3>Formação</h3><p>Senai, Desenvolvimento de Sistemas período em andamento</p></article>
+            <article class="card"><h3>Objetivo</h3><p>Tornar-me um profissional de tecnologia, aprimorando minhas habilidades em programação e desenvolvendo projetos criativos, funcionais e inovadores.</p></article>
+            <article class="card"><h3>Interesses</h3><p>Desenvolvimento Web, Front-end, Back-end, criação de aplicativos, design de interfaces (UI/UX) e inteligência artificial.</p></article>
+            <article class="card"><h3>Qualidades</h3><p>Criatividade, facilidade para aprender, organização, dedicação, raciocínio lógico, resolução de problemas e vontade de evoluir profissionalmente.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HABILIDADES ================= -->
+    <section id="habilidades" class="secao">
+      <div class="container">
+        <h2>Habilidades</h2>
+
+        <h3 class="sub">Técnicas</h3>
+        <ul class="skills">
+          <li class="card skill revela"><span class="ico" aria-hidden="true">H5</span><span>HTML5</span></li>
+          <li class="card skill revela"><span class="ico" aria-hidden="true">C3</span><span>CSS3</span></li>
+          <li class="card skill revela"><span class="ico" aria-hidden="true">JS</span><span>JavaScript</span></li>
+          <li class="card skill revela"><span class="ico" aria-hidden="true">Git</span><span>Git e GitHub</span></li>
+          <li class="card skill revela"><span class="ico" aria-hidden="true">VS</span><span>VS Code</span></li>
+        </ul>
+
+        <h3 class="sub">Competências profissionais</h3>
+        <ul class="skills">
+          <li class="card skill revela"><span class="ico" aria-hidden="true">Co</span><span>Comunicação</span></li>
+          <li class="card skill revela"><span class="ico" aria-hidden="true">Eq</span><span>Trabalho em equipe</span></li>
+          <li class="card skill revela"><span class="ico" aria-hidden="true">Or</span><span>Organização</span></li>
+          <li class="card skill revela"><span class="ico" aria-hidden="true">Cr</span><span>Criatividade</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= PROJETOS ================= -->
+    <section id="projetos" class="secao">
+      <div class="container">
+        <h2>Meus projetos</h2>
+        <div class="grade">
+
+          <article class="card item revela">
+            <div class="thumb"><img src="assets/projects/projeto.png" alt="Captura de tela do projeto de exemplo 1" loading="lazy"></div>
+            <div class="item-corpo">
+              <h3>Projeto de exemplo 1</h3>
+              <p>Uma recriação do aplicativo spotify usando apenas o figma.</p>
+              <ul class="tags"><li>HTML</li><li>CSS</li></ul>
+              <div class="links">
+                <a class="btn" href="#" target="_blank" rel="noopener noreferrer">Ver projeto</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card item revela">
+            <div class="thumb"><img src="assets/projects/projeto2.png" alt="Captura de tela do projeto de exemplo 2" loading="lazy"></div>
+            <div class="item-corpo">
+              <h3>Projeto de exemplo 2</h3>
+              <p>Um site da porsche criado para demonstração de animate.css.</p>
+              <ul class="tags"><li>JavaScript</li></ul>
+              <div class="links">
+                <a class="btn" href="https://site-da-porsche.vercel.app/" target="_blank" rel="noopener noreferrer">Ver projeto</a>
+                <a class="btn btn-sec" href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card item revela">
+            <div class="thumb"><img src="assets/projects/projeto3.png" alt="Captura de tela do projeto de exemplo 3" loading="lazy"></div>
+            <div class="item-corpo">
+              <h3>Projeto de exemplo 3</h3>
+              <p>Um site de viagens internacionais.</p>
+              <ul class="tags"><li>HTML</li><li>CSS</li><li>JS</li></ul>
+              <div class="links">
+                <a class="btn" href="https://site-bootstrap-lilac.vercel.app/" target="_blank" rel="noopener noreferrer">Ver projeto</a>
+                <a class="btn btn-sec" href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CERTIFICADOS ================= -->
+    <section id="certificados" class="secao">
+      <div class="container">
+        <h2>Meus certificados</h2>
+        <div class="grade">
+
+          <article class="card item revela">
+            <div class="thumb"><img src="assets/certificates/certificado1.png" alt="Miniatura do certificado 1" loading="lazy"></div>
+            <div class="item-corpo">
+              <h3>Competência Transversal - Tecnologia da Informação e Comunicação</h3>
+              <p class="meta">SENAI · Data de início 24/02/2026</p>
+              <div class="links">
+                <a class="btn" href="assets/certificates/cert1.svg" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card item revela">
+            <div class="thumb"><img src="assets/certificates/certificado.png" alt="Miniatura do certificado 2" loading="lazy"></div>
+            <div class="item-corpo">
+              <h3>FluêncIA - Fundamentos da Inteligência Artificial</h3>
+              <p class="meta">SENAI · Data de início 23/02/2026</p>
+              <div class="links">
+                <a class="btn" href="assets/certificates/cert2.svg" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTATO ================= -->
+    <section id="contato" class="secao">
+      <div class="container contato-grid">
+        <div>
+          <h2>Contato</h2>
+          <p class="lead">Fale comigo por e-mail ou pelas redes abaixo.</p>
+          <div class="redes">
+            <a href="https://github.com/seu-usuario" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg></a>
+            <a href="https://linkedin.com/in/seu-usuario" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+            <a href="mailto:cicerocnribero@gmail.com" aria-label="E-mail"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
+          </div>
+        </div>
+
+        <!-- data-email: e-mail que receberá a mensagem -->
+        <form id="form" class="card form" data-email="seuemail@exemplo.com" novalidate>
+          <label>Nome <input name="nome" required autocomplete="name"></label>
+          <label>E-mail <input name="email" type="email" required autocomplete="email"></label>
+          <label>Assunto <input name="assunto" required></label>
+          <label>Mensagem <textarea name="mensagem" rows="5" required></textarea></label>
+          <button class="btn" type="submit">Enviar mensagem</button>
+          <p class="aviso" id="aviso" role="status">Este site não tem servidor: o botão abre o seu programa de e-mail com a mensagem pronta. O envio só acontece quando você enviar por lá.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= RODAPÉ ================= -->
+  <footer class="footer">
+    <div class="container foot">
+      <p>© <span id="ano">2026</span> Seu Nome. Todos os direitos reservados.</p>
+      <nav aria-label="Rodapé">
+        <a href="#inicio">Início</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#certificados">Certificados</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <div class="redes">
+        <a href="https://github.com/seu-usuario" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg></a>
+        <a href="https://linkedin.com/in/seu-usuario" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+        <a href="mailto:seuemail@exemplo.com" aria-label="E-mail"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
